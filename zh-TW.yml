@@ -438,9 +438,9 @@ minishop:
   yousold: "你透過販賣 [number] 個 [description] 來賺取 [price] 。"
 moblimits: 
   entity: "Island [entity] limit of [number] reached!"
-  error: "空島動物已達到上限（ [number] 隻）"
-  hopper: "空島漏斗已達到上限（ [number] 個）"
-  villager: "空島村民已達到上限（ [number] 個）"
+  error: "空島動物數量已達到上限（ [number] 隻）"
+  hopper: "空島漏斗數量已達到上限（ [number] 個）"
+  villager: "空島村民數量已達到上限（ [number] 個）"
 nether: 
   spawnisprotected: "地獄重生點已被保護。"
 news: 
