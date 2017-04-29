@@ -111,7 +111,7 @@ adminSetSpawn:
   locked: "Spawn is locked!"
   move: "Move further away or unregister the owner."
   ownedBy: "這個空島屬於玩家 [name]。"
-  range: "保護範圍： [number]。"
+  range: "保護範圍： [number]"
   set: "設定空島的重生點到你目前位置。"
   setting: "Setting island spawn to your location [location]"
 adminTeam: 
