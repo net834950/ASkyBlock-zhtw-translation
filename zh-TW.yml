@@ -76,20 +76,20 @@ adminLock:
   adminUnlockedIsland: "&3空島系統 &6»&a 工作人員解除鎖定了你的空島。"
   errorInGame: "&3空島系統 &6»&c 必須在遊戲內並在一座空島上才能使用此指令! "
 adminRegister: 
-  hadIsland: "&3空島系統 &6»&a 玩家 [name] 之前在 [location] 有個空島。"
-  leadsTeam: "&3空島系統 &6»&c 玩家 [name] 是一個隊伍的隊長，請先將其隊員踢除。"
+  hadIsland: "&3空島系統 &6»&a 玩家 &r[name]&a 之前在 [location] 有個空島。"
+  leadsTeam: "&3空島系統 &6»&c 玩家 &r[name]&c 是一個隊伍的隊長，請先將其隊員踢除。"
   noIsland: "&3空島系統 &6»&c 這附近沒有已知的空島！"
   notSpawn: "&3空島系統 &6»&c 你不能移除 spawn 的擁有權！"
-  taking: "&3空島系統 &6»&a 正在移除 [name] 的空島擁有權"
+  taking: "&3空島系統 &6»&a 正在移除 &r[name]&a 的空島擁有權。"
 adminResetChallengeForAll:
   error: "&3空島系統 &6»&c 重複次數的格式為 [整數][m/h/d] (分鐘、小時、天)，如「5h」"
   repeating: "重複 [duration]"
   reset: "重置 [date]"
 adminResetSign: 
-  errorExists: "&3空島系統 &6»&c 那個 Welcome 告示牌目前已為啟用狀態，擁有者為玩家 [name]。"
+  errorExists: "&3空島系統 &6»&c 那個 Welcome 告示牌目前已為啟用狀態，擁有者為玩家 &r[name]&c。"
   found: "&3空島系統 &6»&a 發現 Welcome 告示牌！"
   noSign: "&3空島系統 &6»&c 你必須看著一個告示牌以執行這個指令。"
-  rescued: "&3空島系統 &6»&a 傳送點復原完成，並已指派給玩家 [name]。"
+  rescued: "&3空島系統 &6»&a 傳送點復原完成，並已指派給玩家 &r[name]&a。"
 adminReserve:
   islandExists: "&3空島系統 &6»&c 這裡已經有一個空島了，你可以直接註冊該玩家！"
 adminSetHome: 
@@ -136,19 +136,19 @@ adminUnregister:
   keepBlocks: "&3空島系統 &6»&c Removing player from world, but keeping island at [location]"
   onTeam: "&3空島系統 &6»&c Player is in a team - disband it first."
 ban: 
-  alreadybanned: "&3空島系統 &6»&c 已經封鎖過 [name] 了！"
-  banned: "&3空島系統 &6»&c 你已被 [name] 封鎖，因此不能進入他的空島。"
-  fail: "&3空島系統 &6»&c 無法封鎖 [name]！"
+  alreadybanned: "&3空島系統 &6»&c 已經封鎖過 &r[name]&c 了！"
+  banned: "&3空島系統 &6»&c 你已被 &r[name]&c 封鎖，因此不能進入他的空島。"
+  fail: "&3空島系統 &6»&c 無法封鎖 &r[name]&c！"
   helpBan: "封鎖一個玩家"
   helpBanList: "查看被封鎖的玩家"
   helpUnban: "解除封鎖一個玩家"
   lifted: "Ban lifted from [name]'s island!"
   liftedsuccess: "Ban lifted for [name]!"
   none: "&3空島系統 &6»&a 無"
-  notbanned: "&3空島系統 &6»&c 玩家 [name] 尚未被封鎖！"
+  notbanned: "&3空島系統 &6»&c 玩家 &r[name]&c 尚未被封鎖！"
   notteammember: "&3空島系統 &6»&c 你不能封鎖空島的成員！"
   notyourself: "&3空島系統 &6»&c 你不能封鎖你自己！"
-  success: "&3空島系統 &6»&c 已封鎖玩家 [name]"
+  success: "&3空島系統 &6»&c 已封鎖玩家 &r[name]&c"
 biome: 
   help: "打開生態群畫面"
   paneltitle: "選擇一個生態群"
@@ -182,7 +182,7 @@ challenges:
   maxreached: "Max reached [donetimes] out of [maxtimes]"
   moneyReward: "金錢獎勵"
   name: "任務名稱"
-  nameHasCompleted: "&3空島系統 &6»&c 玩家 [name] 完成了空島「[challenge]」任務！"
+  nameHasCompleted: "&3空島系統 &6»&c 玩家 &r[name]&c 完成了空島「[challenge]」任務！"
   navigation: "Click to see [level] challenges!"
   notRepeatable: "&3空島系統 &6»&c 此任務無法重複完成！"
   repeatRewards: "重複獎勵"
@@ -197,7 +197,7 @@ changingObsidiantoLava: "&3空島系統 &6»&a 已將把黑曜石變回岩漿，
 checkteam: 
   checkingTeam: "確認 [name] 隊伍"
 completechallenge: 
-  challangeCompleted: "&3空島系統 &6»&a 玩家 [name] 完成了「[challengename]」任務。"
+  challangeCompleted: "&3空島系統 &6»&a 玩家 &r[name]&a 完成了「[challengename]」任務。"
   errorChallengeDoesNotExist: "&3空島系統 &6»&c 任務不存在或是已完成。"
 confirm: 
   errorTimeLimitExpired: "&3空島系統 &6»&c 重複確認的時間已過！ 請再次使用指令。"
@@ -206,12 +206,12 @@ coop:
   help: "給予一個玩家完整的空島使用權限"
   invited: "玩家 [name] 已經授予玩家 [player] 合作權限！"
   listcoops: "列出所有合作玩家"
-  madeyoucoopy: "&3空島系統 &6»&a 玩家 [name] 給了你合作權限。"
-  notincoop: "&3空島系統 &6»&c 玩家 [name] 沒有合作權限！"
+  madeyoucoopy: "&3空島系統 &6»&a 玩家 &r[name]&a 給了你合作權限。"
+  notincoop: "&3空島系統 &6»&c 玩家 &r[name]&c 沒有合作權限！"
   onyourteam: "&3空島系統 &6»&c 該玩家已經在你的隊伍裡了！"
-  removed: "&3空島系統 &6»&4&l 玩家 [name] 取消了你的合作權限。"
-  removesuccess: "&3空島系統 &6»&c 已取消玩家 [name] 的合作權限。"
-  success: "&3空島系統 &6»&a 已授予玩家 [name] 合作權限。該權限將會在你踢除他、取消他的合作權限或他們登出之後自動取消。"
+  removed: "&3空島系統 &6»&4&l 玩家 &r[name]&4&l 取消了你的合作權限。"
+  removesuccess: "&3空島系統 &6»&c 已取消玩家 &r[name]&c 的合作權限。"
+  success: "&3空島系統 &6»&a 已授予玩家 &r[name]&a 合作權限。該權限將會在你踢除他、取消他的合作權限或他們登出之後自動取消。"
   uncoop: "取消該玩家的合作權限"
   useexpel: "使用 expel 或 uncoop 來取消他的權限。"
 deaths: 
@@ -219,7 +219,7 @@ deaths:
   died: "死了！"
   leveldeaths: "&c[[number] 次死亡]"
 delete: 
-  removing: "&3空島系統 &6»&c 正在移除玩家 [name] 的空島。"
+  removing: "&3空島系統 &6»&c 正在移除玩家 &r[name]&c 的空島。"
 drankAcid: "drank acid."
 drankAcidAndDied: "just drank acid and died."
 error:
@@ -242,10 +242,10 @@ error:
   minishopDisabled: "&3空島系統 &6»&c 商店現在無法使用"
 expel: 
   expelled: "&3空島系統 &6»&c&l 你被驅逐出這個空島了！"
-  fail: "&3空島系統 &6»&c [name] 不能被驅逐！"
+  fail: "&3空島系統 &6»&c 玩家 &r[name]&c 不能被驅逐！"
   notonisland: "&3空島系統 &6»&c Player is not trespassing on your island!"
   notyourself: "&3空島系統 &6»&c 你不能驅逐你自己！"
-  success: "&3空島系統 &6»&a&l 你驅逐了玩家 [name]。"
+  success: "&3空島系統 &6»&a&l 你驅逐了玩家 &r[name]&a&l。"
 general:
   success: "&3空島系統 &6»&a 成功！"
 invite: 
@@ -255,10 +255,10 @@ invite:
   errorYouCannotInviteYourself: "&3空島系統 &6»&c 你不能邀請你自己！"
   errorYouMustHaveIslandToInvite: "&3空島系統 &6»&c 你得先有個空島才能邀請玩家過來！"
   errorYourIslandIsFull: "&3空島系統 &6»&c 你的空島人數已經滿了，你不能再邀請玩家了。"
-  hasJoinedYourIsland: "&3空島系統 &6»&a 玩家 [name] 進入了你的空島！"
+  hasJoinedYourIsland: "&3空島系統 &6»&a 玩家 &r[name]&a 進入了你的空島！"
   help: "使用 [/[label] invite <playername>] 來邀請玩家到你的空島。"
-  inviteSentTo: "&3空島系統 &6»&a 邀請了玩家 [name]。"
-  nameHasInvitedYou: "&3空島系統 &6»&a&l 玩家 [name] 邀請你到他的空島！"
+  inviteSentTo: "&3空島系統 &6»&a 邀請了玩家 &r[name]&a。"
+  nameHasInvitedYou: "&3空島系統 &6»&a&l 玩家 &r[name]&a&l 邀請你到他的空島！"
   onlyIslandOwnerCanInvite: "&3空島系統 &6»&c 只有隊長可以邀請！"
   removingInvite: "&3空島系統 &6»&c 取消你剛才的邀請。"
   toAcceptOrReject: "&3空島系統 &6»&a 接受或拒絕邀請。"
@@ -267,8 +267,8 @@ invite:
   youCannotInvite: "&3空島系統 &6»&c 你無法再邀請更多玩家了。"
   youHaveJoinedAnIsland: "&3空島系統 &6»&c 你已經加入了一個空島！ 使用 /[label] team 來查看其他成員。"
 island: 
-  blockValue: "&3空島系統 &6»&a 這個 [name] 應該價值 [value]。"
-  blockWorthless: "&3空島系統 &6»&c [name] 沒有任何價值。" 
+  blockValue: "&3空島系統 &6»&a 這個 &r[name]&a 應該價值 [value]。"
+  blockWorthless: "&3空島系統 &6»&c &r[name]&c 沒有任何價值。" 
   cannotTeleport: "&3空島系統 &6»&c 在掉落過程中無進行傳送！"
   donate: ""
   donatecolor: "aqua"
@@ -392,8 +392,8 @@ kick:
   errorNotPartOfTeam: "&3空島系統 &6»&c 該玩家不在你空島的隊伍內！"
   errorOnlyLeaderCan: "&3空島系統 &6»&c 只有隊長可以將玩家從空島上驅逐！"
   errorPlayerNotInTeam: "&3空島系統 &6»&c 該玩家不在你的隊伍內！"
-  nameRemoved: "&3空島系統 &6»&a 已自空島移除玩家 [name]。"
-  nameRemovedYou: "&3空島系統 &6»&c&l 玩家 [name] 已將你驅逐出他的空島！"
+  nameRemoved: "&3空島系統 &6»&a 已自空島移除玩家 &r[name]&a。"
+  nameRemovedYou: "&3空島系統 &6»&c&l 玩家 &r[name]&c&l 已將你驅逐出他的空島！"
 lavaTip: "&3空島系統 &6»&a 提醒：如果你是不小心弄出黑曜石的，你可以使用一個空桶子將其還原為岩漿。"
 leave: 
   canceled: "&3空島系統 &6»&a 已取消離開空島。"
@@ -401,7 +401,7 @@ leave:
   errorYouAreTheLeader: "&3空島系統 &6»&c 因為你是空島擁有者，你不能離開。先將空島轉移給別的玩家吧。"
   errorYouCannotLeaveIsland: "&3空島系統 &6»&c 因為你是空島的唯一成員，你不能離開你的空島。你可以選擇重設你的空島。"
   errorYouMustBeInWorld: "&3空島系統 &6»&c 你必須在空島上才能離開隊伍！"
-  nameHasLeftYourIsland: "&3空島系統 &6»&c&l 玩家 [name] 離開了你的空島！"
+  nameHasLeftYourIsland: "&3空島系統 &6»&c&l 玩家 &r[name]&c&l 離開了你的空島！"
   warning: "&3空島系統 &6»&c&l 確定要離開隊伍嗎？ 確定請再次輸入 '/[label] leave' 。"
   youHaveLeftTheIsland: "&3空島系統 &6»&a 你已經離開空島，並返回到重生點。"
 level: 
@@ -413,8 +413,8 @@ lock:
   islandlocked: "&3空島系統 &6»&c 此空島拒絕訪客進入。"
   leavingspawn: "離開重生點"
   locking: "&3空島系統 &6»&a 正在鎖定空島。"
-  nowentering: "&3空島系統 &6»&a 已進入玩家 [name] 的空島。"
-  nowleaving: "&3空島系統 &6»&c 已離開玩家 [name] 的空島。"
+  nowentering: "&3空島系統 &6»&a 已進入玩家 &r[name]&a 的空島。"
+  nowleaving: "&3空島系統 &6»&c 已離開玩家 &r[name]&c 的空島。"
   unlocking: "&3空島系統 &6»&a 正在解除鎖定空島。"
 makeleader: 
   errorGeneralError: "&3空島系統 &6»&4 隊長變更失敗。"
@@ -423,7 +423,7 @@ makeleader:
   errorRemoveAllPlayersFirst: "&3空島系統 &6»&c 請先踢除正在接受轉移的玩家以外的成員。"
   errorThatPlayerIsNotInTeam: "&3空島系統 &6»&c 該玩家不在你的隊伍內！"
   errorYouMustBeInTeam: "&3空島系統 &6»&c 你必須在隊伍內才能轉移你的空島。"
-  nameIsNowTheOwner: "&3空島系統 &6»&a&l 玩家 [name] 現在是空島隊長了！"
+  nameIsNowTheOwner: "&3空島系統 &6»&a&l 玩家 &r[name]&a&l 現在是空島隊長了！"
   youAreNowTheOwner: "&3空島系統 &6»&a&l 你現在是空島隊長了！"
 minishop: 
   buy: "按下左鍵以購買"
@@ -457,7 +457,7 @@ purge:
   preventPurge: "&3空島系統 &6»&c 該空島受清除保護。"
   purgeCancelled: "&3空島系統 &6»&c&l 已取消清除操作。"
   removingAt: "&3空島系統 &6»&c 正在清除位於 [location] 的空島。"
-  removingName: "&3空島系統 &6»&c 清除：正在清除玩家 [name] 的空島。"
+  removingName: "&3空島系統 &6»&c 清除：正在清除玩家 &r[name]&c 的空島。"
   skyblockFound: "&3空島系統 &6»&a 找到了 [number] 個無主空島。在 20 秒內使用 '/asadmin purge unowned confirm' 以刪除他們。"
   stillChecking: "&3空島系統 &6»&c 還在檢查玩家資料 ..."
   thisWillRemove: "&3空島系統 &6»&a 已找到 [number] 個閒置空島，空島等級小於 [level] 的將會被移除。"
@@ -468,15 +468,15 @@ register:
   errorBedrockNotFound: "&3空島系統 &6»&c 無法註冊空島，找不到基岩。"
   settingIsland: "設定玩家 [name] 的空島為最近的一個空島。"
 reject: 
-  nameHasRejectedInvite: "&3空島系統 &6»&c [name] 回絕了你的空島入駐邀請。"
+  nameHasRejectedInvite: "&3空島系統 &6»&c 玩家 &r[name]&c 回絕了你的空島入駐邀請。"
   youHaveNotBeenInvited: "&3空島系統 &6»&f 你沒有收到任何空島入駐邀請。"
   youHaveRejectedInvitation: "&3空島系統 &6»&f 你回絕了一個空島入駐邀請。"
 reload: 
   configReloaded: "&3空島系統 &6»&f 已重新載入設定檔。"
 resetallchallenges: 
-  success: "&3空島系統 &6»&f [name] 的所有任務已重置完畢。"
+  success: "&3空島系統 &6»&f 玩家 &r[name]&f 的所有任務已重置完畢。"
 resetchallenge: 
-  challengeReset: "&3空島系統 &6»&f [name] 的「[challengename]」任務已重設完畢。"
+  challengeReset: "&3空島系統 &6»&f 玩家 &r[name]&f 的「[challengename]」任務已重設完畢。"
   errorChallengeDoesNotExist: "&3空島系統 &6»&c 該任務不存在或是尚未完成。"
 schematics: 
   title: "選擇空島類型 ..."
@@ -527,7 +527,7 @@ warps:
   errorNotSafe: "&3空島系統 &6»&c 該傳送點目前不太安全，請稍後再試。"
   errorNotEnoughLevel: "&3空島系統 &6»&f 你的空島等級不足以建立一個 Welcome 告示牌！"
   next: "下一頁"
-  playerWarped: "&3空島系統 &6»&f 玩家 [name] &2傳送到了你的空島！"
+  playerWarped: "&3空島系統 &6»&f 玩家 &r[name]&f &2傳送到了你的空島！"
   previous: "前一頁"
   removed: "&3空島系統 &6»&f Welcome 告示牌已移除。"
   signRemoved: "&3空島系統 &6»&f 已移除你的 Welcome 告示牌。"
