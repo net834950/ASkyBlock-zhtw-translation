@@ -1,113 +1,539 @@
-PREFIX: '&3MineMystery &a空島商店 &6» '
-LANG:
-  CONSOLE: Console
-MSG:
-  ERROR: 發生錯誤，請聯絡工作人員。
-  INGAMEONLY: 這個指令只能在遊戲內使用。
-  NOACCESS: 你沒有權限這樣做。
-  NOTLOADED: 你的資料還沒載入，請稍後再試。
-  NOTLOADEDTARGET: 這個玩家的資料還沒載入，請稍後再試。
-  RELOADED: 已重新載入設定檔！
-  USAGE:
-    SUBCOMMAND: '指令格式錯誤。正確使用方式： %usage%'
-  CMD:
-    SHOP:
-      ADDMODIFIER:
-        ITEM:
-          USAGE: /shop addmodifier item <player> <shop> <item> <value> [buy|sell]
-          ADDED: You set &c%player%&f's %type% price modifier for the %item% item in %shop% shop to &c%modifier%&f.
-          ADDEDBY: Your %type% price modifier for the %item% item in %shop% shop was set to &c%modifier%&f by &c%player%&f.
-        SHOP:
-          USAGE: /shop addmodifier shop <player> <shop> <value> [buy|sell]
-          ADDED: You set &c%player%&f's %type% price modifier for all items in %shop% shop to &c%modifier%&f.
-          ADDEDBY: Your %type% price modifier for all items in %shop% shop was set to &c%modifier%&f by &c%player%&f.
-        GLOBAL:
-          USAGE: /shop addmodifier global <player> <value> [buy|sell]
-          ADDED: You set &c%player%&f's %type% price modifier to &c%modifier%&f.
-          ADDEDBY: Your %type% price modifier was set to &c%modifier%&f by &c%player%&f.
-      CHECKMODIFIERS:
-        VIEW:
-          VIEW: |-
-            &c%player%&f's modifiers:
-            Global modifiers:
-            %global%
-            Shop modifiers:
-            %shop%
-            Item modifiers:
-            %item%
-          ENTRY:
-            ITEM: 'Item: &c%item%&f, shop: &c%shop%&f, buy: &c%buy%&f, sell: &c%sell%&f'
-            SHOP: 'Shop: &c%shop%&f, buy: &c%buy%&f, sell: &c%sell%&f'
-            GLOBAL: 'Buy: &c%buy%&f, sell: &c%sell%&f'
-      RESETMODIFIER:
-        ITEM:
-          USAGE: /shop resetmodifier item <player> <shop> <item> [buy|sell]
-          RESET: You reset &c%player%&f's %type% price modifier for the %item% item in %shop% shop.
-          RESETBY: Your %type% price modifier for the %item% item in %shop% shop was reset by &c%player%&f.
-        SHOP:
-          USAGE: /shop resetmodifier shop <player> <shop> [buy|sell]
-          RESET: You reset &c%player%&f's %type% price modifier for all items in %shop% shop.
-          RESETBY: Your %type% price modifier for all items in %shop% shop was set to by &c%player%&f.
-        GLOBAL:
-          USAGE: /shop resetmodifier global <player> [buy|sell]
-          RESET: You reset &c%player%&f's %type% price modifier.
-          RESETBY: Your %type% price modifier was set to &c%modifier%&f by &c%player%&f.
-  MODIFIER:
-    INVALIDAMOUNT: Invalid modifier value specified. Valid values are for instance 0.50 which is 50%, 2.0 which is 200% etc.
-    INVALIDTYPE: Invalid modifier type specified. Valid values are buy, sell and both.
-    BUY: buy
-    SELL: sell
-    BOTH: buy & sell
-  INVALIDPLAYER: 找不到該玩家。
-  INVALIDSHOP: 找不到商店 ID：「&c%shop%&f」。
-  INVALIDITEM: Item with ID &c%item%&f not found in &c%shop%&f.
-  NOACCESSTOSHOP: 你沒有權限使用 &c%shop%&f 商店。
-  NODIRECTACCESSTOSHOP: 你不能使用 &c%shop%&f 商店。
-  MAINMENUDISABLED: 你不能使用這個指令，請使用「/shop <id>」。
-  WORLDBANNED: 你不能在這個地方使用商店。
-  WORLDBANNEDTARGET: '%player% 不能在那個世界使用商店。'
-  GAMEMODEBANNED: 你不能在 %gamemode% 模式中使用商店。
-  GAMEMODEBANNEDTARGET: '%player% 不能在 %gamemode% 模式中使用商店。'
-  ITEM:
-    FULLINVENTORY: 你的背包空間不足。
-    CANNOTAFFORD: 你需要 &c%price%$&f 才能購買 &c%amount% 個 %item%&f.
-    CANNOTBUY: 你不能購買這個物品。
-    CANNOTSELL: 你不能售出這個物品。
-    BOUGHT: 你用 &c%price%$&f 購買了 &c%amount% 個 %item%&f。
-    BOUGHTFREE: 你收到了 &c%amount% 個 %item%&f。
-    NOTENOUGH: 你需要 &c%amount% 個 %item%&f 才能售出。
-    SOLD: 你以 &a%price%$&f 賣出了 &a%amount% 個 %item%&f。
-    SOLDFREE: 你送出了 &a%amount% 個 %item%&f。
-    SOLDALL: 你以 &a%price%$&f 賣出了你所有的 %item%&f。（&a%amount% 個 %item%&f）
-    SOLDALLFREE: 你送出了你所有的 %item%&f（&a%amount% 個 %item%&f）
-    NOACCESS: 你沒有權限使用這個物品。
-  ENCHANT:
-    CANNOTAPPLY: 無法將附魔 &c%enchantment%&f 套用到你手上拿著的物品。
-    ALREADYAPPLIED: 這個物品已經有 &c%enchantment%&f 附魔了。
-    LEVELDIFF: 你需要有一個最少有 &c%enchantment% %level%&f 的物品。
-    CANNOTAFFORD: 你需要 &c%price%$&f 才能購買 &c%enchantment%&f。
-    MAX: 這個物品的附魔數量已達上限。（%amount%）
-    TOOMANY: 你不能一次附魔多於 %amount% 個物品。
-    BOUGHT: 你以 &c%price%$&f 購買了附魔 &c%enchantment%&f。
-  PERMISSION:
-    PERMISSIONSDISABLED: Permissions are disabled, please contact server's owner.
-    ALREADYHAVE: 你已經有 &c%permission%&f 權限了。
-    CANNOTAFFORD: 你需要 &c%price%$&f 才能買 &c%permission%&f。
-    BOUGHT: 你以 &c%price%$&f 購買了 &c%permission%&f 權限。
-  COMMAND:
-    BOUGHT: 你以 &c%price%$&f 購買了該指令。
-    CANNOTAFFORD: 你需要 &c%price%$&f 才能購買該指令。
-DIALOG:
-  AMOUNTSELECTION:
-    BUY:
-      NAME: '&2正在購買 %item%'
-    SELL:
-      NAME: '&2正在售出 %item%'
-    BULKBUY:
-      NAME: '&c正在購買 %item%（單位：組）'
-    BULKSELL:
-      NAME: '&c正在售出 %item%（單位：組）'
-SHOP:
-  PERMISSION:
-    ALREADYOWNED: '&4(Already owned)'
-    NOTOWNED: '&a(Not owned)'
+###########################################################################################
+# This is a YML file. Be careful when editing. Check your edits in a YAML checker like    #
+# the one at http://yaml-online-parser.appspot.com                                        #
+###########################################################################################
+
+--- 
+acidBottle: "受輻射污染的水瓶"
+acidBucket: "受輻射污染的水桶"
+acidLore: |
+    海水受到了輻射污染，
+    請小心。
+
+adminDeleteIsland: 
+  error: "使用 &l/deleteisland confirm &r&c來刪除你所在的空島。"
+  noid: "&3MineMystery &6»&c 空島辨識失敗。"
+  use: "請使用 &ldelete [name] &r&c來刪除玩家的空島。"
+adminHelp: 
+  add: "adds player to leader's team"
+  addrange: "adds to or substracts from the island's protection range"
+  clearreset: "重置玩家的空島重置次數"
+  clearresetall: "重置所有玩家的空島重置次數"
+  cobblestats: "顯示礦石製造機的數據報告"
+  completeChallenge: "標記一個任務為已完成"
+  delete: "刪除一個空島（移除所有方塊）"
+  help: "管理員指令: Admin Commands"
+  info: "顯示某個玩家的資訊"
+  infoisland: "查看離你最近空島的資訊"
+  kick: "移除一個隊伍中的玩家"
+  level: "provide detailed island level report on player"
+  listChallengeResets: "列出重置任務的所需時間"
+  lock: "鎖定或解鎖玩家的空島"
+  purge: "刪除 [TimeInDays] 天以前的閒置空島"
+  purgeallowdisallow: "允許/不允許 清除空島達到清除標準的空島"
+  purgeholes: "釋放 island holes 來重複使用"
+  purgeunowned: "清除無擁有者的空島"
+  name: "設定空島的名字"
+  register: "將空島設置到你目前的位置"
+  reload: "reload configuration from file."
+  resetAllChallenges: "重置所有玩家的任務"
+  resetChallenge: "標記一個任務為未完成"
+  resetChallengeForAll: "globally resets a challenge for every player with an optional repetition"
+  resetname: "重置玩家的空島名字"
+  resetsign: "Resets the sign you are looking at to the island owner"
+  setbiome: "sets leader's island biome"
+  setdeaths: "設定玩家的死亡計次"
+  setlanguage: "設定預設語言且將重置所有玩家到此語言"
+  setrange: "改變空島的保護範圍"
+  setspawn: "設定空島的重生點為離你最近的點"
+  settingsreset: "重置所有空島保護設定為預設值"
+  teamChatSpy: "Spy on team chats (on/off)"
+  topTen: "手動更新空島排行 TOP 10"
+  topbreeders: "lists most populated islands currently loaded"
+  tp: "傳送到玩家的空島"
+  tpnether: "傳送到玩家的終界空島"
+  unregister: "刪除一個玩家但不刪除空島"
+adminInfo: 
+  bannedPlayers: "已封鎖的玩家"
+  errorNullTeamLeader: "Team leader should be null!"
+  errorTeamMembersExist: "Player has team members, but shouldn't!"
+  hoppers: "空島有 [number] 個漏斗"
+  islandLocation: "空島位置"
+  isLocked: "空島已上鎖"
+  isProtected: "空島有 Purge 保護"
+  isSpawn: "Island is spawn"
+  isUnlocked: "空島已解鎖"
+  isUnprotected: "空島無 Purge 保護"
+  lastLogin: "最後一次登入"
+  maxSize: "空島最大範圍 (distance)"
+  player: "玩家"
+  teamLeader: "空島主人"
+  teamMembers: "空島成員"
+  title: "This is spawn island"
+  unowned: "此空島目前沒有主人。"
+adminLock: 
+  adminLockedIsland: "&3MineMystery &6»&c 工作人員鎖定了你的空島"
+  adminUnlockedIsland: "&3MineMystery &6»&a 工作人員解除鎖定了你的空島"
+  errorInGame: "必須在遊戲中的空島才能使用指令! Must use command in-game while on an island!"
+adminRegister: 
+  hadIsland: "&3MineMystery &6»&a 玩家 [name] 之前在 [location] 有個空島"
+  leadsTeam: "&3MineMystery &6»&c 玩家 [name] 是一個隊伍的隊長，請先將其隊員踢除。"
+  noIsland: "&3MineMystery &6»&c 這附近沒有已知的空島！"
+  notSpawn: "&3MineMystery &6»&c 你不能移除 spawn 的擁有權！"
+  taking: "&3MineMystery &6»&a 正在移除 [name] 的空島擁有權"
+adminResetChallengeForAll:
+  error: "&3MineMystery &6»&c 重複次數的格式為 [整數][m/h/d] (分鐘、小時、天)，如「5h」"
+  repeating: "重複[duration] Repeating "
+  reset: "重置[date] Reset "
+adminResetSign: 
+  errorExists: "&3MineMystery &6»&c 那個 Welcome 告示牌目前已為啟用狀態，擁有者為玩家 [name]。"
+  found: "&3MineMystery &6»&a 發現 Welcome 告示牌！"
+  noSign: "&3MineMystery &6»&c 你必須看著一個告示牌以執行這個指令。"
+  rescued: "&3MineMystery &6»&a 傳送點復原完成，並已指派給玩家 [name]。"
+adminReserve:
+  islandExists: "&3MineMystery &6»&c 這裡已經有一個空島了，你可以直接註冊該玩家！"
+adminSetHome: 
+  homeSet: "&3MineMystery &6»&a 已設定家為 [location]。"
+  noneFound: "&3MineMystery &6»&c 未找到安全地點！"
+  notOnPlayersIsland: "&3MineMystery &6»&c You are not on the player's island"
+  notSafe: "&3MineMystery &6»&c 該地點不安全！"
+adminSetRange: 
+  invalid: "&3MineMystery &6»&c 不正確的範圍！"
+  set: "設定新範圍 [number] Set new range to "
+  tip: "範圍為 10 ~ [max]"
+  updated: "&3MineMystery &6»&a 空島範圍已設定為 [number]。"
+  warning: "&3MineMystery &6»&c Warning - range is greater than island range [max]"
+  warning2: "&3MineMystery &6»&c Overlapped islands will act like spawn!"
+adminSetSpawn: 
+  center: "空島中心 [location] 。 Island center [location]"
+  coords: "Protection coords [min] to [max]"
+  limits: "Island limits [min] to [max]"
+  locked: "Spawn is locked!"
+  move: "Move further away or unregister the owner."
+  ownedBy: "這個空島屬於 [name] 。 This island space is owned by [name]"
+  range: "保護範圍 = [number] 。 Protection range = [number]"
+  set: "設定空島的重生點到你目前位置。 Set island spawn to your location."
+  setting: "Setting island spawn to your location [location]"
+adminTeam: 
+  addLeaderNoIsland: "隊長沒有自己的空島所以不能創立隊伍！"
+  addLeaderToOwn: "Cannot add a leader to their own team."
+  addedLeader: "新增隊長到這個隊伍。"
+  addingPlayer: "新增玩家到隊伍裡。"
+  alreadyOnTeam: "玩家已經在隊伍裡了！"
+  kickLeader: "That player is a team leader. Remove team members first. Use '/[label] info [name]' to find team members."
+  nowUnowned: "[name] had an island at [location] that will become unowned now. You may want to delete it manually."
+  settingHome: "Setting player's home to the leader's home location"
+adminTopBreeders: 
+  checking: "&3MineMystery &6»&a Checking [number] islands..."
+  finding: "&3MineMystery &6»&a Finding top breeders..."
+  nothing: "&3MineMystery &6»&c 未找到任何生物。"
+adminTopTen: 
+  finished: "&3MineMystery &6»&a 前十名空島列表產生完畢。"
+  generating: "&3MineMystery &6»&f 正在產生前十名的空島列表 ..."
+adminTp: 
+  manualWarp: "&3MineMystery &6»&c No safe spot found. Manually warp to somewhere near [location]."
+adminUnregister: 
+  keepBlocks: "&3MineMystery &6»&c Removing player from world, but keeping island at [location]"
+  onTeam: "&3MineMystery &6»&c Player is in a team - disband it first."
+ban: 
+  alreadybanned: "&3MineMystery &6»&c 已經封鎖過 [name] 了！"
+  banned: "&3MineMystery &6»&c 你已被 [name] 封鎖，因此不能進入他的空島。"
+  fail: "&3MineMystery &6»&c 無法封鎖 [name]！"
+  helpBan: "封鎖一個玩家"
+  helpBanList: "查看被封鎖的玩家"
+  helpUnban: "解除封鎖一個玩家"
+  lifted: "Ban lifted from [name]'s island!"
+  liftedsuccess: "Ban lifted for [name]!"
+  none: "無"
+  notbanned: "&3MineMystery &6»&c 玩家 [name] 尚未被封鎖！"
+  notteammember: "&3MineMystery &6»&c 你不能封鎖空島的成員！"
+  notyourself: "&3MineMystery &6»&c 你不能封鎖你自己！"
+  success: "&3MineMystery &6»&c 已封鎖玩家 [name]"
+biome: 
+  help: "打開生態群畫面"
+  paneltitle: "選擇一個生態群"
+  set: "&3MineMystery &6»&a 空島的生態群已經設定為 [biome]！"
+  unknown: "&3MineMystery &6»&c 找不到這個生態群！"
+  youbought: "&3MineMystery &6»&a 已用 [cost] 購買！"
+boats: 
+  warning: "&3MineMystery &6»&c 現在下船不太安全..."
+challenges: 
+  colors: "Challenges will have different colors depending on if they are:"
+  complete: "已完成 Complete"
+  completeNotRepeatable: "已完成（不可重複）"
+  completeRepeatable: "已完成（可重複）"
+  completedtimes: "&3MineMystery &6»&a 已完成 [donetimes] 次，最多可以完成 [maxtimes] 次"
+  errorIslandLevel: "&3MineMystery &6»&c 空島等級必須達到 [level] 以完成此項任務！"
+  errorItemsNotThere: "&3MineMystery &6»&c 所有需要的物品都必須在你的附近！"
+  errorNotCloseEnough: "&3MineMystery &6»&c 你與所需物品的距離必須在 [number] 個方塊之內"
+  errorNotEnoughItems: "&3MineMystery &6»&c 你的所需物品不足："
+  errorNotOnIsland: "&3MineMystery &6»&c 你必須在你的空島上才能進行！"
+  errorRewardProblem: "&3MineMystery &6»&c 無法發送任務獎勵，請聯絡工作人員！"
+  erroryouaremissing: "You are missing"
+  expReward: "經驗值獎勵"
+  firstTimeRewards: "第一次完成任務的獎勵"
+  guititle: "MineMystery 空島任務"
+  help1: "&3MineMystery &6»&a 使用 /c <name> 來查看一個任務的資料。"
+  help2: "&3MineMystery &6»&a 使用 /c complete <name> 來完成該任務。"
+  incomplete: "尚未完成"
+  invalidChallengeName: "找不到該任務！請使用 /c help 以取得更多資訊。"
+  itemTakeWarning: "當你完成此項任務時，其所需之所有物品將會被系統取走！"
+  level: "等級"
+  maxreached: "Max reached [donetimes] out of [maxtimes]"
+  moneyReward: "金錢獎勵"
+  name: "任務名稱"
+  nameHasCompleted: "&3MineMystery &6»&c 玩家 [name] 完成了空島任務 [challenge]！"
+  navigation: "Click to see [level] challenges!"
+  notRepeatable: "&3MineMystery &6»&c 此任務無法重複完成！"
+  repeatRewards: "重複獎勵"
+  rewards: "獎勵"
+  toComplete: "完成 [challengesToDo] 個 [thisLevel] 的任務來解鎖新任務！"
+  toCompleteUse: "To complete this challenge, use"
+  unknownChallenge: "未知的任務名稱（請檢查你的拼字）！"
+  youHaveCompleted: "你已經完成了 [challenge] 任務！"
+  youHaveNotUnlocked: "你還沒解鎖這個任務！"
+  youRepeated: "你再度完成了 [challenge] ！"
+changingObsidiantoLava: "把黑曜石變回岩漿了！ 小心使用！"
+checkteam: 
+  checkingTeam: "確認 [name] 隊伍"
+completechallenge: 
+  challangeCompleted: "[challengename] 已經被 [name] 完成了"
+  errorChallengeDoesNotExist: "任務不存在或是已完成。"
+confirm: 
+  errorTimeLimitExpired: "重複確認的時間已過！ 請再次使用指令."
+coop:
+  cannotcoop: "只有空島主人可以授予玩家合作權限。" 
+  help: "給予一個玩家完整的空島使用權限"
+  invited: "玩家 [name] 已經授予玩家 [player] 合作權限！"
+  listcoops: "列出所有合作玩家"
+  madeyoucoopy: "玩家 [name] 給了你合作權限。"
+  notincoop: "玩家 [name] 沒有合作權限！"
+  onyourteam: "該玩家已經在你的隊伍裡了！"
+  removed: "玩家 [name] 取消了你的合作權限。"
+  removesuccess: "玩家 [name] 的合作權限已經取消。"
+  success: "玩家 [name] 已被授予合作權限。該權限將會在你踢除他、取消他的合作權限或他們登出之後自動取消。"
+  uncoop: "取消該玩家的合作權限"
+  useexpel: "使用 expel 或 uncoop 來取消他的權限。"
+deaths: 
+  deaths: "死亡次數"
+  died: "死了！"
+  leveldeaths: "&c[[number] 次死亡]"
+delete: 
+  removing: "正在移除玩家 [name] 的空島。"
+drankAcid: "drank acid."
+drankAcidAndDied: "just drank acid and died."
+error:
+  blockedbyapi: "A plugin using the API blocked this action."
+  commandNotReady: "你現在不能使用這個指令。"
+  maxIslands: "這個世界的空島已經滿了！ 待會再試試看！"
+  noIsland: "你還沒有一個自己的空島！"
+  noIslandOther: "此玩家還沒有自己的空島！"
+  noPermission: "你沒有權限使用該指令！"
+  notABlock: "這不是一個方塊。 "
+  noTeam: "玩家並不在隊伍裡。"
+  notOnIsland: "你不在空島的空間上！"
+  offlinePlayer: "此玩家不在線上或不存在。"
+  tooLong: "Too long. Maximum size is [length]."
+  tooShort: "Too short. Minimum size is [length]."
+  unknownCommand: "未知的指令"
+  unknownPlayer: "未知的玩家"
+  useInGame: "必須在遊戲裡才能使用指令。"
+  wrongWorld: "你不能在這世界這樣做。"
+  minishopDisabled: "商店現在無法使用"
+expel: 
+  expelled: "你從這個空島被驅逐了！"
+  fail: "[name] 不能被驅逐！"
+  notonisland: "Player is not trespassing on your island!"
+  notyourself: "你不能驅逐你自己！"
+  success: "你驅逐了 [name] 。"
+general:
+  success: "Success!"
+invite: 
+  errorCantJoinIsland: "你無法進入這個空島，也許人數已經滿了。"
+  errorCoolDown: "你可以在 [time] 分鐘之內再次邀請該玩家。"
+  errorThatPlayerIsAlreadyInATeam: "該玩家已經在隊伍內。"
+  errorYouCannotInviteYourself: "你不能邀請你自己！"
+  errorYouMustHaveIslandToInvite: "你得先有個空島才能邀請玩家過來！"
+  errorYourIslandIsFull: "你的空島人數已經滿了，你不能再邀請別人。"
+  hasJoinedYourIsland: "[name] 進入了你的空島！"
+  help: "使用 [/[label] invite <playername>] 來邀請玩家到你的空島。"
+  inviteSentTo: "邀請了 [name] 。"
+  nameHasInvitedYou: "[name] 邀請你到他的空島！"
+  onlyIslandOwnerCanInvite: "只有隊長可以邀請！"
+  removingInvite: "取消你剛才的邀請。"
+  toAcceptOrReject: "接受或拒絕邀請。"
+  warningYouWillLoseIsland: "WARNING: You will lose your current island if you accept!"
+  youCanInvite: "你可以邀請 [number] 以上的玩家。"
+  youCannotInvite: "你無法再邀請更多玩家。"
+  youHaveJoinedAnIsland: "你已經加入了一個空島！ 使用 /[label] team 來查看其他成員。"
+island: 
+  blockValue: "&3MineMystery &6»&a 這個 [name] 應該價值 [value]"
+  blockWorthless: "&3MineMystery &6»&c [name] 沒價值" 
+  cannotTeleport: "&3MineMystery &6»&c 在掉落過程中無法傳送！"
+  donate: ""
+  donatecolor: "aqua"
+  errorCouldNotCreateIsland: "無法建立新的空島，請聯繫伺服器管理員。"
+  errorInvalidPlayer: "該玩家無效或尚未擁有空島！"
+  errorLevelNotReady: "目前無法使用該指令！請稍後再嘗試。"
+  errorYouDoNotHavePermission: "&3MineMystery &6»&c 你沒有權限使用該指令！"
+  helpAcceptReject: "接受或拒絕空島加入邀請。"
+  helpChallenges: "/challenges： &f查看任務列表"
+  helpColor: "&e"
+  helpControlPanel: "打開空島選單。"
+  helpExpel: "強制一個在你空島上的玩家離開。"
+  helpInvite: "邀請一個玩家加入你的空島。"
+  helpIsland: "傳送到你的空島（如果沒有則建立一個）。"
+  helpIslandSpawn: "go to spawn."
+  helpKick: "將一個空島成員踢除。"
+  helpLeave: "離開一個玩家的空島。"
+  helpLevel: "計算你的空島等級。"
+  helpLevelPlayer: "查看其他玩家的空島等級。"
+  helpLock: "鎖定空島以禁止訪客進入。"
+  helpMakeLeader: "將空島轉讓給 <player>"
+  helpName: "為你的空島設定一個名字。"
+  helpResetName: "重設你空島的名字。"
+  helpRestart: "刪除這個空島，並建立一個新的。"
+  helpSelectLanguage: "選擇語言"
+  helpSetHome: "set your teleport point for /[label]."
+  helpSettings: "查看空島保護與遊戲設定"
+  helpTeam: "查看你的隊伍資料。"
+  helpTeleport: "傳送到你的空島上。"
+  helpTop: "查看前幾名的空島"
+  helpValue: "查看手中方塊的空島等級價值"
+  helpWarp: "傳送到 <player> 的 Welcome 告示牌。"
+  helpWarps: "列出所有可用的 Welcome 告示牌傳送點。"
+  islandDeletedLifeboats: "&3MineMystery &6»&c 空島已刪除！請前往救生艇！"
+  islandLevelis: "&3MineMystery &6»&a 空島等級為"
+  new: "&3MineMystery &6»&a 正在為你建立一個新的空島 ..."
+  requiredPointsToNextLevel: "你還需要 [points] 個點數來達到等級 [next]。"
+  resetConfirm: "&3MineMystery &6»&c 在 [seconds] 秒內使用 /[label] 來刪除你的空島並重新開始！"
+  resetMustRemovePlayers: "&3MineMystery &6»&c 在重新開始之前，你必須用 /[label] kick <player> 來踢除你空島上的所有成員。你可以使用 /[label] team 來查看你空島的所有成員。"
+  resetNoMore: "&3MineMystery &6»&c 你已經不能再重新開始了！"
+  resetOnlyOwner: "&3MineMystery &6»&c 只有空島主人可以重設這個空島。若要建立你自己的空島，使用 /[label] leave 來離開這個空島。"
+  resetPleaseWait: "&3MineMystery &6»&a 請稍候，正在建立新的空島。"
+  resetsLeft: "Resets left"
+  resetTo: "&3MineMystery &6»&a 已重設重新開始次數"
+  resetWait: "You have to wait [time] seconds before you can do that again."
+  resetYouHave: "&3MineMystery &6»&a 你還可以重新開始 [number] 次。"
+  subtitle: ""
+  subtitlecolor: "blue"
+  teleport: "正在將你傳送到你的空島。（使用 /[label] help 來取得更多資訊）"
+  title: ""
+  titlecolor: "gold"
+  unlimited: "無限制"
+  url: ""
+islandProtected: "&3MineMystery &6»&c 空島已被保護。"
+islandguardsettings: 
+  TNTdamage: "TNT Damage"
+  allowed: "允許 Allowed"
+  aciddamage: "Acid damage"
+  animalspawning: "允許/不允許 動物繁殖"
+  anvil: "是否讓訪客使用鐵砧"
+  armorstand: "是否讓訪客使用盔甲架"
+  beacon: "是否讓訪客使用烽火台"
+  bed: "是否讓訪客使用床"
+  breakblocks: "是否讓訪客破壞方塊"
+  breeding: "是否讓訪客繁殖動物"
+  brewingstand: "是否讓訪客釀造藥水"
+  bucket: "是否讓訪客使用水桶"
+  collectlava: "是否讓訪客收集岩漿"
+  collectwater: "是否讓訪客收集水"
+  chest: "是否讓訪客開啟箱子"
+  chestdamage: "Chest damage by TNT"
+  chorusfruit: "是否讓訪客使用紫頌果"
+  creeperdamage: "Creeper damage"
+  creepergriefing: "Creeper griefing"
+  creeperpain: "Creeper explosions hurt"
+  croptrample: "是否讓訪客踐踏作物"
+  disallowed: "不允許 Disallowed"
+  door: "是否讓訪客使用門"
+  eggs: "是否讓訪客丟擲雞蛋"
+  enchantingtable: "是否讓訪客使用附魔台"
+  enderpearl: "是否讓訪客使用終界珍珠"
+  fire: "Fire"
+  fireextinguish: "是否讓訪客能夠撲滅火"
+  firespread: "Fire spread"
+  furnace: "是否讓訪客使用熔爐"
+  gate: "Visitor gate use"
+  horseinventoryaccess: "是否讓訪客開啟馬上的背包"
+  horseriding: "是否讓訪客騎馬"
+  hurtanimals: "是否讓訪客能夠傷害動物"
+  hurtmonsters: "是否讓訪客攻擊怪物"
+  joinleaveislandmessages: "Enter/exit island messages"
+  jukebox: "是否讓訪客使用唱片機"
+  leash: "是否讓訪客使用栓繩"
+  lever: "是否讓訪客使用拉桿或按鈕"
+  milking: "是否讓訪客擠奶 Visitor cow milking"
+  monsterspawning: "允許/不允許怪物生成"
+  netherpvp: "Nether PvP"
+  placeblocks: "是否讓訪客可以放置方塊"
+  portaluse: "是否讓訪客使用傳送門"
+  pressureplate: "是否讓訪客觸發壓力板"
+  pvp: "PvP"
+  redstone: "是否讓訪客使用紅石"
+  settingsgeneraltitle: "World Settings"
+  settingsgeneraldesc: "General Island World Settings"
+  settingsislandtitle: "空島設定"
+  settingsislanddesc: "Settings for this island"
+  settingsspawntitle: "重生點設定"
+  settingsspawndesc: "These rules apply at spawn"
+  shears: "是否讓訪客可以剃羊毛"
+  spawnegg: "Spawn egg use"
+  teleportwhenfalling: "掉落時傳送"
+  title: "空島保護設定"
+  villagertrading: "是否讓訪客與村民交易"
+  visitordrop: "是否讓訪客丟棄物品"
+  visitorkeepitems: "是否讓訪客在死亡時保留物品"
+  visitorpickup: "是否讓訪客撿拾物品"
+  withergriefing: "Wither griefing"
+  workbench: "是否讓訪客使用工作台"
+kick: 
+  errorNoTeam: "你尚未建立隊伍！"
+  errorNotPartOfTeam: "該玩家不在你空島的隊伍內！"
+  errorOnlyLeaderCan: "只有隊長可以將玩家從空島上驅逐！"
+  errorPlayerNotInTeam: "該玩家不在你的隊伍內！"
+  nameRemoved: "[name] 已經從空島上被移除了。"
+  nameRemovedYou: "[name] 已經把你從他的空島上驅逐了！"
+lavaTip: "Tip: If obsidian was not intended, it can be scooped back up again with a bucket."
+leave: 
+  canceled: "Leave canceled"
+  errorLeadersCannotLeave: "隊長無法離開空島，必須先新增其他隊長。"
+  errorYouAreTheLeader: "You cannot leave because you are the leader. Make someone the leader first."
+  errorYouCannotLeaveIsland: "You can't leave your island if you are the only person. Try restart if you want a new one!"
+  errorYouMustBeInWorld: "你必須在空島上才能離開隊伍！"
+  nameHasLeftYourIsland: "[name] 已經離開你的空島！"
+  warning: "確定要離開隊伍嗎？ 確定請再次輸入 '[label] leave' 。"
+  youHaveLeftTheIsland: "你已經離開空島，並返回到重生點。"
+level: 
+  calculating: "計算空島的等級中，這需要一些時間... "
+  errornotYourIsland: "只有隊長可以這麼做。"
+  islandLevel: "空島等級"
+lock: 
+  enteringspawn: "進入重生點"
+  islandlocked: "此空島拒絕訪客進入"
+  leavingspawn: "離開重生點"
+  locking: "Locking island"
+  nowentering: "現在進入 [name] 的空島"
+  nowleaving: "現在離開 [name] 的空島"
+  unlocking: "Unlocking island"
+makeleader: 
+  errorGeneralError: "無法變更隊長。"
+  errorNotYourIsland: "This isn't your island, so you can't give it away!"
+  errorPlayerMustBeOnline: "玩家必須在線上才能轉移空島。"
+  errorRemoveAllPlayersFirst: "踢除正在接受轉移的玩家以外的成員。"
+  errorThatPlayerIsNotInTeam: "該玩家不在你的隊伍內！"
+  errorYouMustBeInTeam: "你必須在隊伍內才能轉移你的空島。"
+  nameIsNowTheOwner: "[name] 現在是空島主人了！"
+  youAreNowTheOwner: "你現在是空島主人了！"
+minishop: 
+  buy: "按下左鍵以購買"
+  buyproblem: "購買 [description] 時發生錯誤。"
+  islandhelpMiniShop: "打開迷你商店"
+  outofstock: "售罄"
+  sell: "按下右鍵以賣出"
+  sellproblem: "你沒有足夠的 [description] 來販賣。"
+  title: "&E迷你商店"
+  youbought: "你花了 [price] 元購買 [number] 個 [description] 。"
+  youcannotafford: "You cannot afford [description]!"
+  yousold: "你透過販賣 [number] 個 [description] 來賺取 [price] 。"
+moblimits: 
+  entity: "Island [entity] limit of [number] reached!"
+  error: "空島動物已達到上限（ [number] 隻）"
+  hopper: "空島漏斗已達到上限（ [number] 個）"
+  villager: "空島村民已達到上限（ [number] 個）"
+nether: 
+  spawnisprotected: "地獄重生點已被保護。"
+news: 
+  headline: "&3MineMystery &6»&a 當你不在線上時："
+purge: 
+  acidFound: "There are [number] unowned islands. Do '/acid purge unowned confirm' to delete them within 20 seconds."
+  allowPurge: "Purge protection removed"
+  alreadyRunning: "Purge is already running, please wait for it to finish!"
+  calculating: "正在計算已經超過 [time] 天未使用的空島數量。"
+  countingUnowned: "Counting unowned islands and checking player files. This could take some time..."
+  finished: "完成清除閒置的空島。"
+  noneFound: "沒有閒置的空島可以被移除。"
+  nowWaiting: "請等候..."
+  preventPurge: "Island is protected from purging"
+  purgeCancelled: "Purge cancelled."
+  removingAt: "Removing island at location [location]"
+  removingName: "Purge: Removing [name]'s island"
+  skyblockFound: "There are [number] unowned islands. Do '/asadmin purge unowned confirm' to delete them within 20 seconds."
+  stillChecking: "Still checking player files..."
+  thisWillRemove: " [number] 個閒置空島已被找到，空島等級小於 [level] 的將會被移除。"
+  typeConfirm: "在10秒內輸入 /[label] confirm 來確認執行"
+  usage: "Usage: /[label] purge [TimeInDays]"
+  warning: "DANGER! Do not run this with players on the server! MAKE BACKUP OF WORLD!"
+register: 
+  errorBedrockNotFound: "無法註冊空島，找不到基岩。"
+  settingIsland: "Set [name]'s island to the nearest island."
+reject: 
+  nameHasRejectedInvite: "&3MineMystery &6»&c [name] 回絕了你的空島入駐邀請。"
+  youHaveNotBeenInvited: "&3MineMystery &6»&f 你沒有收到任何空島入駐邀請。"
+  youHaveRejectedInvitation: "&3MineMystery &6»&f 你回絕了一個空島入駐邀請。"
+reload: 
+  configReloaded: "&3MineMystery &6»&f 已重新載入設定檔。"
+resetallchallenges: 
+  success: "&3MineMystery &6»&f [name] 的所有任務已重置完畢。"
+resetchallenge: 
+  challengeReset: "&3MineMystery &6»&f [name] 的任務 [challengename] 已重設完畢。"
+  errorChallengeDoesNotExist: "&3MineMystery &6»&c 該任務不存在或是尚未完成。"
+schematics: 
+  title: "選擇空島類型 ..."
+sethome: 
+  errorNoIsland: "&3MineMystery &6»&c 你不是空島的一員，正在將你傳送回大廳。"
+  errorNotOnIsland: "&3MineMystery &6»&c 你只能在你的空島範圍內設定家的位置！"
+  errorNumHomes: "&3MineMystery &6»&c 家的數量只能為 1 ~ [max]。"
+  homeSet: "&3MineMystery &6»&a 已經將你空島的家設定為你現在的位置。"
+settingsReset:
+  done: "&3MineMystery &6»&a 完成。"
+  inprogress: "&3MineMystery &6»&f 正在重設保護設定，請稍候 ..."
+sign: 
+  line1: "歡迎來到 &lMineMystery"
+  line2: "空島模式的最終目標是"
+  line3: "登上 /is top，成為"
+  line4: "本伺服器的頂尖空島！"
+sign-acidisland:
+  line1: "歡迎來到 &lMineMystery"
+  line2: "空島模式的最終目標是"
+  line3: "登上 /is top，成為"
+  line4: "本伺服器的頂尖空島！"
+targetInPVPArea: "&3MineMystery &6»&c 目標在非 PvP 區域中！"
+team: 
+  listingMembers: "列出空島的共同成員 Listing your island members"
+teamchat: 
+  helpChat: "開啟或關閉隊伍聊天"
+  noTeam: "&3MineMystery &6»&c 你不在隊伍當中！"
+  noTeamAround: "&3MineMystery &6»&c 你沒有在線上的隊友！"
+  prefix: "[隊伍聊天] <{ISLAND_PLAYER}> "
+  spyoff: "&3MineMystery &6»&c 已經取消監聽隊伍聊天"
+  spyon: "&3MineMystery &6»&a 已經開始監聽隊伍聊天"
+  statusOff: "&3MineMystery &6»&c 已關閉隊伍聊天"
+  statusOn: "&3MineMystery &6»&a 已啟用隊伍聊天"
+topTen:
+  errorExcluded: "&3MineMystery &6»&c 提醒：因為你沒有權限「[perm]」，因此你已被從空島前十名名單中排除。"
+  errorNotReady: "&3MineMystery &6»&c 空島前十名名單還未準備就緒！"
+  guiTitle: "前十名的空島"
+  header: "&3MineMystery &6»&f 這些是前十名的空島："
+warps: 
+  deactivate: "&3MineMystery &6»&c 已停用舊的 Welcome 告示牌！"
+  errorDoesNotExist: "&3MineMystery &6»&c 找不到該傳送點！"
+  errorDuplicate: "&3MineMystery &6»&c 對不起，目前的位置已經有了一個 Welcome 告示牌。"
+  errorNoPerm: "&3MineMystery &6»&c 你沒有權限建立 Welcome 告示牌。"
+  errorNoPlace: "&3MineMystery &6»&c 你只能在你的空島上建立一個 Welcome 告示牌！"
+  errorNoRemove: "&3MineMystery &6»&c 你只可以移除你自己的 Welcome 告示牌！"
+  errorNoWarpsYet: "&3MineMystery &6»&c 目前還沒有可用的空島傳送點。"
+  errorNotReadyYet: "&3MineMystery &6»&c 該傳送點目前尚未準備完畢，請稍後再試。"
+  errorNotSafe: "&3MineMystery &6»&c 該傳送點目前不太安全，請稍後再試。"
+  errorNotEnoughLevel: "&3MineMystery &6»&f 你的空島等級不足以建立一個 Welcome 告示牌！"
+  next: "下一頁"
+  playerWarped: "&3MineMystery &6»&f 玩家 [name] &2傳送到了你的空島！"
+  previous: "前一頁"
+  removed: "&3MineMystery &6»&f Welcome 告示牌已移除。"
+  signRemoved: "&3MineMystery &6»&f 已移除你的 Welcome 告示牌。"
+  success: "&3MineMystery &6»&f Welcome 告示牌已啟用。"
+  title: "空島傳送點"
+  warpTip: "&3MineMystery &6»&f 放置一個告示牌，在第一行寫下「[Welcome]」來建立一個空島傳送點。"
+  warpToPlayersSign: "&3MineMystery &6»&f 正在前往玩家 <player> 的 Welcome 告示牌"
+  warpsAvailable: "以下是可用的傳送點"
+  welcomeLine: "[WELCOME]"
